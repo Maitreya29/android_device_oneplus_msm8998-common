@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 allow hal_power_default proc_touchpanel:dir { search };
 allow hal_power_default proc_touchpanel:file { rw_file_perms };
+=======
+r_dir_file(hal_power_default, debugfs_rpm)
+r_dir_file(hal_power_default, sysfs_devfreq)
+r_dir_file(hal_power_default, sysfs_graphics)
+r_dir_file(hal_power_default, sysfs_kgsl)
+r_dir_file(hal_power_default, sysfs_power_stats)
+>>>>>>> 426d4fc... msm8998-common: sepolicy: Grant access to WLAN power stats
 
 allow hal_power_default debugfs_power_stats:file { r_file_perms };
