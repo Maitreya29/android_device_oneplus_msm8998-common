@@ -175,7 +175,11 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8998 \
     memtrack.msm8998 \
     libdisplayconfig \
-    libqdMetaData.system
+    libhwc2on1adapter \
+    libtinyxml \
+    libqdMetaData \
+    libqdMetaData.system \
+    libvulkan
 
 PRODUCT_PACKAGES += \
     vendor.display.config@1.9 \
@@ -456,6 +460,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
 
 # VNDK
+# Update this list with what each blob is actually for
+# libstdc++: camera.msm8998
+PRODUCT_PACKAGES += \
+    libstdc++.vendor
+
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcutils-v29.so \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcutils-v29.so
