@@ -226,6 +226,7 @@ PRODUCT_COPY_FILES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl:64 \
+    android.hardware.health@2.1-impl-qti \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
@@ -366,9 +367,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
-# QMI
-PRODUCT_PACKAGES += \
-    libjson
+# QTI Components
+TARGET_COMMON_QTI_COMPONENTS := \
+    av \
+    vibrator \
+    telephony \
+    gps \
+
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -436,10 +441,6 @@ PRODUCT_PACKAGES += \
 # Verity
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
 
 # VNDK
 PRODUCT_COPY_FILES += \
