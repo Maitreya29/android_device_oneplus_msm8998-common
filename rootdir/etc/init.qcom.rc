@@ -33,6 +33,14 @@ on early-init
 
     write /proc/sys/kernel/sched_boost 1
 
+    # debug boot process
+    rm /cache/boot_lc_full.txt
+    rm /cache/boot_lc_crash.txt
+    rm /cache/boot_lc_kernel.txt
+    start boot_lc
+    start boot_lc_kernel
+    start boot_lc_crash
+
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
@@ -588,6 +596,27 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     onrestart restart audioserver
 
+service boot_lc /system/bin/logcat -b all -D -f /cache/boot_lc_full.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_lc_crash /system/bin/logcat -b crash -D -f /cache/boot_lc_crash.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_lc_kernel /system/bin/logcat -b kernel -D -f /cache/boot_lc_kernel.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
 service vendor.bt-mac-generator /vendor/bin/bt-mac-generator
     class main
     user bluetooth
@@ -741,3 +770,13 @@ service vendor.wifi-mac-generator /vendor/bin/wifi-mac-generator
     oneshot
     disabled
     seclabel u:r:wifi_mac_generator:s0
+
+on property:sys.boot_completed=1
+    stop boot_lc
+    stop boot_lc_crash
+    stop boot_lc_kernel
+
+on property:dev.bootcomplete=1
+    stop boot_lc
+    stop boot_lc_crash
+    stop boot_lc_kernel
