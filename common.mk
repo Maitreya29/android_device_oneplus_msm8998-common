@@ -504,9 +504,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-# NezukoOS
-NEZUKO_BUILD_TYPE := OFFICIAL
-NEZUKO_MAINTAINER := Maitreya29
+# Project Radiant
+RADIANT_BUILD_TYPE := OFFICIAL
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
