@@ -1022,6 +1022,13 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
+# Vibrator
+vendor/bin/hw/vendor.qti.hardware.vibrator.service
+vendor/etc/init/vendor.qti.hardware.vibrator.service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.vibrator.service.xml
+vendor/lib64/libqtivibratoreffect.so
+vendor/lib64/vendor.qti.hardware.vibrator.impl.so
+
 # Wi-Fi
 vendor/bin/cnss-daemon
 
