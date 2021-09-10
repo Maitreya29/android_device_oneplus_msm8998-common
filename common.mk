@@ -408,6 +408,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
     ims-ext-common \
+    libavservices_minijail \
+    libavservices_minijail.vendor \
     telephony-ext \
     ims_ext_common.xml \
     qti-telephony-hidl-wrapper \
