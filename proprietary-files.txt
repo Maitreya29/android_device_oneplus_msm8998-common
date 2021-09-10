@@ -788,8 +788,8 @@ vendor/bin/qrtr-ns
 vendor/lib/libqrtr.so
 vendor/lib64/libqrtr.so
 
-# Radio - from jasmine - V11.0.15.0.QDIMIXM
-product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|5b1c23ce0d42e1b666d387eedde3444dd07e61bc
+# Radio - from LA.UM.9.6.2.r1-04100-89xx.0
+system_ext/framework/qti-telephony-common.jar|8c99640be5b9b9ee886bfc450b6923a33eb2fd8b
 
 # Radio
 etc/permissions/qcnvitems.xml:product/etc/permissions/qcnvitems.xml
